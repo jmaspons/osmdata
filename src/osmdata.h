@@ -487,3 +487,20 @@ void get_osm_nodes (Rcpp::DataFrame &node_df, Rcpp::DataFrame &kv_df,
 } // end namespace osm_sc
 
 Rcpp::List rcpp_osmdata_sc (const std::string& st);
+
+namespace osm_df {
+
+Rcpp::List get_osm_relations (const Relations &rels,
+        const UniqueVals &unique_vals,
+        const Rcpp::NumericVector &bbox);
+void get_osm_ways (Rcpp::List &wayList, Rcpp::DataFrame &kv_df,
+        const std::set <osmid_t> &way_ids, const Ways &ways, const Nodes &nodes,
+        const UniqueVals &unique_vals, const std::string &geom_type,
+        const Rcpp::NumericVector &bbox);
+void get_osm_nodes (Rcpp::List &ptList, Rcpp::DataFrame &kv_df,
+        const Nodes &nodes, const UniqueVals &unique_vals,
+        const Rcpp::NumericVector &bbox);
+
+} // end namespace osm_df
+
+Rcpp::List rcpp_osmdata_df (const std::string& st);

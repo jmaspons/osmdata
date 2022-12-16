@@ -670,6 +670,8 @@ osmdata_data_frame <- function (q,
         message ("converting OSM data to a data.frame")
     }
 
+    # res <- rcpp_osmdata_df (paste0 (doc))
+
     if (isTRUE (obj$meta$query_type == "adiff")) {
         datetime_from <- obj$meta$datetime_from
         if (is.null (datetime_from)) datetime_from <- "old"
