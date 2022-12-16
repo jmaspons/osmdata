@@ -670,23 +670,23 @@ osmdata_data_frame <- function (q,
         message ("converting OSM data to a data.frame")
     }
 
-    # res <- rcpp_osmdata_df (paste0 (doc))
+    df <- rcpp_osmdata_df (paste0 (doc))
 
-    if (isTRUE (obj$meta$query_type == "adiff")) {
-        datetime_from <- obj$meta$datetime_from
-        if (is.null (datetime_from)) datetime_from <- "old"
-        datetime_to <- obj$meta$datetime_to
-        if (is.null (datetime_to)) datetime_to <- "new"
-        df <- xml_adiff_to_df (doc,
-            datetime_from = datetime_from, datetime_to = datetime_to,
-            stringsAsFactors = stringsAsFactors
-        )
-    } else {
-        df <- xml_to_df (doc, stringsAsFactors = stringsAsFactors)
-        if (isTRUE (obj$meta$query_type == "diff")) {
-            df <- unique (df)
-        }
-    }
+    # if (isTRUE (obj$meta$query_type == "adiff")) {
+    #     datetime_from <- obj$meta$datetime_from
+    #     if (is.null (datetime_from)) datetime_from <- "old"
+    #     datetime_to <- obj$meta$datetime_to
+    #     if (is.null (datetime_to)) datetime_to <- "new"
+    #     df <- xml_adiff_to_df (doc,
+    #         datetime_from = datetime_from, datetime_to = datetime_to,
+    #         stringsAsFactors = stringsAsFactors
+    #     )
+    # } else {
+    #     df <- xml_to_df (doc, stringsAsFactors = stringsAsFactors)
+    #     if (isTRUE (obj$meta$query_type == "diff")) {
+    #         df <- unique (df)
+    #     }
+    # }
     attr (df, "bbox") <- obj$bbox
     attr (df, "overpass_call") <- obj$overpass_call
     attr (df, "meta") <- obj$meta

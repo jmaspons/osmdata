@@ -49,7 +49,7 @@
 
 //' get_osm_relations
 //'
-//' Return a dual Rcpp::List containing all OSM relations, the firmt element of
+//' Return a dual Rcpp::List containing all OSM relations, the first element of
 //' which holds `multipolygon` relations, while the second holds all others,
 //' which are stored as `multilinestring` objects.
 //'
