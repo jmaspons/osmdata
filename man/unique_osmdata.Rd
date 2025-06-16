@@ -25,20 +25,13 @@ typical output of \pkg{sf}.
 \examples{
 # Bounding box of "Colchester UK":
 bb <- c (0.6993788, 51.7657055, 1.026803, 51.977153)
-query <- opq (bb)
-query <- add_osm_feature (query, key = "highway")
-# Equivalent to:
-\dontrun{
-query <- opq ("colchester uk") |>
+query <- opq (bb) |>
     add_osm_feature (key = "highway")
-}
 # Then extract data from 'Overpass' API
 \dontrun{
 dat <- osmdata_sf (query)
 dat
-}
 # Then reduce to unique items of each type only:
-\dontrun{
 dat <- unique_osmdata (dat)
 dat
 }
