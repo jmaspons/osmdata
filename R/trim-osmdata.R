@@ -25,23 +25,23 @@
 #'
 #' @examples
 #' # Bounding box of "Colchester UK":
-#' bb <- c (0.6993788, 51.7657055, 1.026803, 51.977153)
-#' query <- opq ("colchester uk") |>
+#' bb <- getbb ("colchester uk")
+#' query <- opq (bb) |>
 #'     add_osm_feature (key = "highway")
 #' # Then extract data from 'Overpass' API
 #' \dontrun{
 #' dat <- osmdata_sf (query, quiet = FALSE)
 #' # Then get bounding *polygon* for Colchester, as opposed to rectangular
 #' # bounding box, and use that to trim data within that polygon:
-#' bb <- getbb ("colchester uk", format_out = "polygon")
+#' bb_pol <- getbb ("colchester uk", format_out = "polygon")
 #' library (sf) # required for this function to work
-#' dat_tr <- trim_osmdata (dat, bb)
-#' bb <- getbb ("colchester uk", format_out = "sf_polygon")
-#' class (bb) # sf data.frame
-#' dat_tr <- trim_osmdata (dat, bb)
-#' bb <- as (bb, "Spatial")
-#' class (bb) # SpatialPolygonsDataFrame
-#' dat_tr <- trim_osmdata (dat, bb)
+#' dat_tr <- trim_osmdata (dat, bb_pol)
+#' bb_sf <- getbb ("colchester uk", format_out = "sf_polygon")
+#' class (bb_sf) # sf data.frame
+#' dat_tr <- trim_osmdata (dat, bb_sf)
+#' bb_sp <- as (bb_sf, "Spatial")
+#' class (bb_sp) # SpatialPolygonsDataFrame
+#' dat_tr <- trim_osmdata (dat, bb_sp)
 #' }
 #' @export
 trim_osmdata <- function (dat, bb_poly, exclude = TRUE) {

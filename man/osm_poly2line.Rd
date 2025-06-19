@@ -25,8 +25,7 @@ repeated as \code{LINESTRING} objects in \code{osm_lines}.
 }
 \examples{
 # Bounding box of "Colchester UK":
-bb <- c (0.6993788, 51.7657055, 1.026803, 51.977153)
-query <- opq (bb) |>
+query <- opq ("colchester uk") |>
     add_osm_feature (key = "highway")
 # Then extract data from 'Overpass' API
 \dontrun{

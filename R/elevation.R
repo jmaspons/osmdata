@@ -15,7 +15,6 @@
 #'
 #' @examples
 #' # Bounding box of "omaha nebraska":
-#' bb <- c (-96.2682, 41.190585, -95.871141, 41.3930618)
 #' query <- opq ("omaha nebraska") |>
 #'     add_osm_feature (key = "highway")
 #' # Elevation can only be applied to \pkg{silicate} 'SC'-class data:

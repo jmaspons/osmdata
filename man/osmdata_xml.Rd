@@ -36,8 +36,7 @@ Objects of class \code{xml_document} can be saved as \code{.xml} or
 }
 \examples{
 # Bounding box of "hampi india":
-bb <- c (76.4410201, 15.3158, 76.4810201, 15.3558)
-query <- opq (bb) |>
+query <- opq ("hampi india") |>
     add_osm_feature (key = "historic", value = "ruins")
 # Then extract data from 'Overpass' API and save to local file:
 \dontrun{
